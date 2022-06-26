@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+.container{
+    display: flexbox;
+    flex-direction: column;
+    background-color:white;
+    height: 100vh;
+    width: 100%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+    height: 35%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer{
+    display: flex;
+     background-color: white;
+     min-height: min-content;
+     flex-flow: row wrap;
+     justify-content: center;
+     /* align-items: flex-start; */
+     align-items: stretch;
+    
+ }
+.btn{
+    height: 30px;
+    margin: 10px;
 }
+.news{
+height: 450px;
+width: 500px;
+background-color: white;    
+margin: 20px;
+flex-grow: 0;
+flex-shrink: 0;
+flex-basis: 500px;
+border-width: px;
+border-style: solid;
+border-color: black;
+background-color: white;
+text-align: center;
+position: relative;
+text-justify: center;
+display: inline-block;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ 
 }
+.newscontent{
+    position: absolute; 
+    top: 84%; left: 0; 
+    right: 0; 
+    transform: translate(0, -50%); 
+    text-align: center;
 
-.App-link {
-  color: #61dafb;
+      
+      color: black;
+    }
+
+.news img{
+    display: block;
 }
+.image{
+    width: 100%;
+    height: 70%;
+    /* position: relative; */
+    left:20px ;
+}
+.newstitle{
+    position: absolute; 
+    top: 71%; left: 0; 
+    right: 0; 
+    transform: translate(0, -50%); 
+    text-align: center;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+      
+      color: darkred;
 }

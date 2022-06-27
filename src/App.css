@@ -6,11 +6,15 @@
     width: 100%;
 }
 .header{
-    height: 35%;
-    background-color: blue;
+    height: 45%;
+    background-color: rgb(206, 206, 216);
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-flow: column wrap;
+    position: relative;
+
+    
 }
 .footer{
     display: flex;
@@ -18,25 +22,30 @@
      min-height: min-content;
      flex-flow: row wrap;
      justify-content: center;
-     /* align-items: flex-start; */
+     
      align-items: stretch;
     
  }
 .btn{
-    height: 30px;
-    margin: 10px;
+    height: 45px;
+    margin: 1px;
+    border-radius: 15px;
+    color: rgb(12, 12, 81);
+    width: 190px;
+    background-color: rgb(217, 184, 229);
+    
 }
 .news{
 height: 450px;
 width: 500px;
 background-color: white;    
-margin: 20px;
+margin: 10px;
 flex-grow: 0;
 flex-shrink: 0;
 flex-basis: 500px;
 border-width: px;
 border-style: solid;
-border-color: black;
+border-color: rgb(120, 106, 124);
 background-color: white;
 text-align: center;
 position: relative;
@@ -62,7 +71,7 @@ display: inline-block;
 .image{
     width: 100%;
     height: 70%;
-    /* position: relative; */
+  
     left:20px ;
 }
 .newstitle{
@@ -74,4 +83,41 @@ display: inline-block;
 
       
       color: darkred;
+}
+.btn:hover{
+    background-color: red;
+    
+}
+.btnalign{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  
+    flex-wrap: wrap;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    
+}
+.input{
+   
+ 
+    display: flex;
+    justify-content: center;
+  
+    
+
+}
+.searchBtn{
+    position: relative;
+    top: 14px;
+    left: 14px;
+    font-size: x-large;
+    
+}
+.textbox{
+    height: 50px;
+    border-radius: 15px;
+    font-size: large;
+    text-align: center;
 }

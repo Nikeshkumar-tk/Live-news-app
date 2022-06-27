@@ -10,49 +10,57 @@ const App=()=>{
   
   
   const [news,setNews]=useState([])
-  const API_KEY='09e9ed1e072b4f688654e2d48d38bb58';
-  const [category,setCategory]=useState('trending')
-  const [search,setSearch]=useState('')
+  const politics='politics'
+  
+
+  const [search,setSearch]=useState('trending')
   
  
-  const fetchNews=(type)=>{
-  axios.get(`https://newsapi.org/v2/everything?q=${type}&apiKey=${API_KEY}`).then((response)=>{
-        console.log(response.data.articles);
-        setNews(response.data.articles)
+ 
+    const fetchNewsByKey=(type)=>{
+      axios({method:'GET',
+              url:`https://bing-news-search1.p.rapidapi.com/news/search`,
+              params: {safeSearch: 'Off', textFormat: 'Raw',originalImg:'true',q:`${type}`,Count:32},
+              headers: {
+                
+                'X-BingApis-SDK': 'true',
+                'X-RapidAPI-Key': '39917aa29amshb5bebf0758c9345p197919jsn308218859cd1',
+                'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
+              }}).then((response)=>{
+            console.log(response.data.value);
+            setNews(response.data.value)
+            
+            
         
-        
+        })};
     
-    })};
     useEffect(()=>{
 
-      fetchNews(category)
+      fetchNewsByKey(politics)
 
-          },[category])
+          },[])
 
-  const fetchTypeNews=(category)=>{
-          setCategory(category);
-         
-        }
+  
 
 
   return(
     <div className="container">
       <div className="header">
        <div className="btnalign">
-        <button className="btn" onClick={()=>fetchTypeNews('trending')}>TRENDING</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('trending')}>TRENDING</button>
         
-        <button className="btn" onClick={()=>fetchTypeNews('games')}>GAMES</button>
-        <button className="btn" onClick={()=>fetchTypeNews('politics')}>POLITICS</button>
-        <button className="btn" onClick={()=>fetchTypeNews('nasa')}>NASA</button>
-        <button className="btn" onClick={()=>fetchTypeNews('technology')} >TECHNOLOGY</button>
-        <button className="btn" onClick={()=>fetchTypeNews('sports')}>SPORTS</button>
-        <button className="btn" onClick={()=>fetchTypeNews('entertainment')}>ENTERTAINMENT</button>
-        <button className="btn" onClick={()=>fetchTypeNews('movie')}>MOVIE</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('games')}>GAMES</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('politics')}>POLITICS</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('nasa')}>NASA</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('technology')} >TECHNOLOGY</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('sports')}>SPORTS</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('entertainment')}>ENTERTAINMENT</button>
+        <button className="btn" onClick={()=>fetchNewsByKey('movie')}>MOVIE</button>
         <div></div></div> 
         <div className="input">
           
           <input type='text' className="textbox" onChange={(e)=>{setSearch(e.target.value)}} id='search' placeholder="Search news"></input>
-          <SearchIcon onClick={()=>fetchNews(search)} className='searchBtn'/></div>
+          <SearchIcon onClick={()=>fetchNewsByKey(search)} className='searchBtn'/></div>
       </div>
       
       <News news={news}/>
